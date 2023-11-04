@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const TabBrowser = () => {
   const [tabs, setTabs] = useState([
@@ -27,7 +28,7 @@ const TabBrowser = () => {
       <div className=" p-4">
         <div className="bg-gray-100 p-4">
           {activeTab.content}
-          <button className='btn btn-primary ml-5'>Bid now</button>
+          <Link to='/job/id' className='btn btn-primary ml-5'>Bid now</Link>
         </div>
       </div>
     </div>
