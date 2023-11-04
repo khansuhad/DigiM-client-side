@@ -6,11 +6,19 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Root from './components/Root/Root';
+import HomeBanner from './components/Home/HomeBanner';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Root></Root>,
+    children:[
+        {
+          path:'/',
+          element: <HomeBanner></HomeBanner>
+        }
+    ]
   },
 ]);
 
