@@ -10,6 +10,10 @@ import Root from './components/Root/Root';
 
 import Home from './components/Home/Home';
 import JobDetails from './components/Job/JobDetails';
+import AddJob from './components/Job/AddJob';
+import MyPostedJobs from './components/Job/MyPostedJobs';
+import UpdateMyPostedJobs from './components/Job/UpdateMyPostedJobs';
+import MyBids from './components/Bids/MyBids';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,21 @@ const router = createBrowserRouter([
         {
           path:'/job/id',
           element:<JobDetails></JobDetails>
+        },
+        {
+          path:'/addjob',
+          element:<AddJob></AddJob>
+        },
+        {
+          path:'/mypostedjobs',
+          element:<MyPostedJobs></MyPostedJobs>
+        },
+        {
+          path:'updatepostedjobs',
+          element:<UpdateMyPostedJobs></UpdateMyPostedJobs>
+        },{
+          path:'mybids',
+          element:<MyBids></MyBids>
         }
     ]
   },
