@@ -2,7 +2,7 @@
 
 const Nav = () => {
     return (
-        <div className="navbar bg-base-100 text-2xl flex items-center w-[90%] mx-auto">
+        <div className="navbar bg-base-100 text-2xl flex items-center w-[90%] mx-auto mb-16">
         <div className="navbar-start ">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
