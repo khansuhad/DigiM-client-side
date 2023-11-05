@@ -14,7 +14,8 @@ const handleBidForm = (e) => {
     const form = e.target ;
     const bidPrice = form.bidPrice.value ;
     const bidDeadLine = form.bidDeadLine.value ;
-    const bidForm = {bidPrice , bidDeadLine , myEmail , email };
+    const status = "Pending..."
+    const bidForm = {bidPrice , bidDeadLine , myEmail , email , jobTitle , deadLine , status };
 console.log(bidForm)
     fetch('http://localhost:5000/bids' ,{
         method:"POST",
@@ -52,7 +53,10 @@ console.log(bidForm)
                         <h1>Your email : {myEmail}</h1>
                         <h1>job owner email : {email}</h1>
                     </div>
-                    <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button>
+                   {
+                    myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button> :
+                    <h1 className="mt-10 text-2xl text-center">You can not bid your own posted job</h1>
+                   }
                 </form>
             </div>
         </div>

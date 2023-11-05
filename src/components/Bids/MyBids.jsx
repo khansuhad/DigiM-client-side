@@ -1,5 +1,14 @@
+import { useContext, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyBids = () => {
+  const {user} = useContext(AuthContext)
+  const bids = useLoaderData();
+  console.log(bids)
+  const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
+  console.log(mybids)
+  const [allBids , setAllBids] = useState(mybids);
     return (
         <div className="w-[90%] mx-auto">
             <div className="overflow-x-auto">
@@ -15,25 +24,27 @@ const MyBids = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      <tr>
+    {
+      allBids?.map( bid =>   <tr key={bid?._id}>
         <td>
           <div className="flex items-center space-x-3">
           
             <div>
-              <div className="font-bold">Job tile</div>
+              <div className="font-bold">{bid?.jobTitle}</div>
              
             </div>
           </div>
         </td>
         <td>
-         <h1>Email</h1>
+         <h1>{bid?.email}</h1>
           
         </td>
-        <td>Deadline</td>
+        <td>{bid?.bidDeadLine}</td>
         <th>
-          <h1>status</h1>
+          <h1>{bid?.status}</h1>
         </th>
-      </tr>
+      </tr>) 
+    }
    
     </tbody>
     {/* foot */}
