@@ -1,10 +1,34 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const JobDetails = () => {
-
+const {user} = useContext(AuthContext)
+const myEmail = user?.email ;
 const suhad = useLoaderData();
-const {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory} = suhad || {} ;
+const {jobTitle, deadLine, minimumPrice , maximumPrice , description , email} = suhad || {} ;
+
+const handleBidForm = (e) => {
+    e.preventDefault();
+    const form = e.target ;
+    const bidPrice = form.bidPrice.value ;
+    const bidDeadLine = form.bidDeadLine.value ;
+    const bidForm = {bidPrice , bidDeadLine , myEmail , email };
+console.log(bidForm)
+    fetch('http://localhost:5000/bids' ,{
+        method:"POST",
+        headers:{
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(bidForm),
+     })
+     .then(res => res.json())
+     .then(data => {
+        console.log(data)
+     })
+    
+}
 
     return (
         <div className="lg:w-[40%] mx-auto mt-20  ">
@@ -19,16 +43,16 @@ const {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory}
 
             <div>
                 <h1 className="text-center text-4xl">Place your Bid</h1>
-                <form action="">
+                <form action="" onSubmit={handleBidForm}>
                     <div className="flex gap-5  mt-10">
-                    <input type="text" placeholder="Price" className="input input-bordered input-error w-full " required />
-                    <input type="text" placeholder="DeadLine" className="input input-bordered input-error w-full " required />
+                    <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full " required />
+                    <input type="text" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full " required />
                     </div>
                     <div className="  mt-10 text-2xl">
-                        <h1>Your email : suhadahmodkhan@gmail.com</h1>
-                        <h1>job owner email : suhadahmodkhan1@gmail.com</h1>
+                        <h1>Your email : {myEmail}</h1>
+                        <h1>job owner email : {email}</h1>
                     </div>
-                    <button type="submit" className="btn btn-primary w-full mt-10 text-2xl ">Bid</button>
+                    <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button>
                 </form>
             </div>
         </div>
