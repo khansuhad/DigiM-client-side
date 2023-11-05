@@ -10,11 +10,12 @@ const AddJob = () => {
         const minimumPrice = form.minimumPrice.value ;
         const maximumPrice = form.maximumPrice.value ;
         const description = form.description.value ;
+        const  catagory = form.dropdown.value ;
         
-        const addForm = {jobTitle, deadLine, minimumPrice , maximumPrice , description};
+        const addForm = {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory};
         console.log(addForm);
 
-     fetch('http://localhost:5000/job' ,{
+     fetch('http://localhost:5000/jobs' ,{
         method:"POST",
         headers:{
             "content-type": "application/json"
@@ -35,8 +36,14 @@ const AddJob = () => {
             
 
             <form onSubmit={handleAddForm} className="w-[60%] mx-auto">
-                <div>
-                <h2 className="text-3xl  font-light mt-10">Your email : suhadahmodkhan@gamil.com</h2>
+                <div className="grid grid-cols-2 items-center gap-5 mt-10 ">
+                <h2 className="text-xl  font-medium ">Your email : suhadahmodkhan@gamil.com</h2>
+                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded ">
+                    
+                     <option value="digitalmarketing">Digital Marketing</option>
+                     <option value="grapicsdesign">Grapics Design</option>
+                     <option value="webdevolopment">Web Devolopment</option>
+    </select>
                 </div>
             <div className="flex gap-5  mt-5">
                     <input type="text" name="jobTitle" placeholder="Job title" className="input input-bordered input-error w-full " />

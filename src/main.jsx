@@ -18,6 +18,7 @@ import MyBidsRequests from './components/Bids/MyBidsRequests';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import AuthProvider from './components/AuthProvider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -30,8 +31,9 @@ const router = createBrowserRouter([
           element: <Home></Home>
         },
         {
-          path:'/job/id',
-          element:<JobDetails></JobDetails>
+          path:`/job/:_id`,
+          element:<JobDetails></JobDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/jobs/catagory/${params._id}`)
         },
         {
           path:'/addjob',
@@ -39,7 +41,8 @@ const router = createBrowserRouter([
         },
         {
           path:'/mypostedjobs',
-          element:<MyPostedJobs></MyPostedJobs>
+          element:<MyPostedJobs></MyPostedJobs>,
+
         },
         {
           path:'updatepostedjobs',
@@ -67,6 +70,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

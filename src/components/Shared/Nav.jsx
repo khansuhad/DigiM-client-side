@@ -1,7 +1,31 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer ,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Nav = () => {
+  const {user , logOut  } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut()
+    .then(() => {
+      console.log('successfully sign out ')
+      toast.success("sign out successfully", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+   }
     return (
         <div className="navbar bg-base-100 text-2xl flex items-center w-[90%] mx-auto mb-16">
         <div className="navbar-start ">
@@ -33,8 +57,24 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn lg:text-2xl">Login</Link>
+        {
+                user ? <div>
+                <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul tabIndex={0} className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 overflow-hidden shadow  rounded-box w-52`}>
+                 
+                  <li><a className="text-2xl font-bold  text-center">{user?.displayName}</a></li>
+                  <li> <Link  className="btn text-2xl font-semibold" onClick={handleSignOut}>Log out</Link></li>
+                </ul>
+              </div> </div> :
+                <Link to='/login' className="btn text-2xl font-semibold">Login</Link>
+             }
         </div>
+        <ToastContainer />
       </div>
     );
 };
