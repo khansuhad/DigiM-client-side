@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const AddJob = () => {
-
+    const {user} = useContext(AuthContext);
+    console.log(user?.email)
     const handleAddForm = (e) => {
         e.preventDefault();
         const form = e.target ;
@@ -11,8 +14,9 @@ const AddJob = () => {
         const maximumPrice = form.maximumPrice.value ;
         const description = form.description.value ;
         const  catagory = form.dropdown.value ;
+        const email = user?.email
         
-        const addForm = {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory};
+        const addForm = {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory, email};
         console.log(addForm);
 
      fetch('http://localhost:5000/jobs' ,{
@@ -37,7 +41,7 @@ const AddJob = () => {
 
             <form onSubmit={handleAddForm} className="w-[60%] mx-auto">
                 <div className="grid grid-cols-2 items-center gap-5 mt-10 ">
-                <h2 className="text-xl  font-medium ">Your email : suhadahmodkhan@gamil.com</h2>
+                <h2 className="text-xl  font-medium ">Your email : {user?.email}</h2>
                 <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded ">
                     
                      <option value="digitalmarketing">Digital Marketing</option>

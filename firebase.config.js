@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey:import.meta.env.APIKEY ,
-  authDomain:import.meta.env.AUTHDOMAIN ,
-  projectId:import.meta.env.PROJECTID ,
-  storageBucket:import.meta.env.STORAGEBUCKET ,
-  messagingSenderId:import.meta.env.MESSAGINGSENDERID ,
-  appId:import.meta.env.APPID 
+  apiKey:"AIzaSyCaJ-eyWDSsV8AARkcYxUCsx_RRFx6ctx4" ,
+  authDomain:"digim-19266.firebaseapp.com" ,
+  projectId:"digim-19266",
+  storageBucket:"digim-19266.appspot.com" ,
+  messagingSenderId:"1072989359958" ,
+  appId:"1:1072989359958:web:52c54a676e7ba66056d0f7" 
 };
 
 
