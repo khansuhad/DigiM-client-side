@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
+import { ToastContainer ,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const MyBidsRequests = () => {
   const {user} = useContext(AuthContext)
   const bids = useLoaderData();
@@ -17,18 +20,60 @@ const MyBidsRequests = () => {
  console.log(allBids)
    const acceptStatus = "In progress...";
    const cancelStatus = "Cancelled..."
-  const handleBid = ( id , status ) => {
-console.log(status)
+  const handleAcceptBid = ( id  ) => {
+
     fetch(`http://localhost:5000/bids/${id}`, {
       method:'PATCH',
       headers:{
           'content-type' : 'application/json',
       },
-      body : JSON.stringify({status})
+      body : JSON.stringify({status : acceptStatus})
   })
   .then(res => res.json())
       .then(data => {
        if(data?.modifiedCount > 0){
+        toast.success("Request Accepted...", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        const remainingData = allBids?.filter( data => data?._id !== id);
+        const updated = allBids?.find( data => data?._id === id )
+        const updatedBids =[updated , ...remainingData]
+        setAllBids(updatedBids)
+        
+        
+       }
+      })
+
+  }
+  const handleCancelBid = ( id  ) => {
+
+    fetch(`http://localhost:5000/bids/${id}`, {
+      method:'PATCH',
+      headers:{
+          'content-type' : 'application/json',
+      },
+      body : JSON.stringify({status : cancelStatus})
+  })
+  .then(res => res.json())
+      .then(data => {
+       if(data?.modifiedCount > 0){
+        toast.error("Request Cancelled...", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
         const remainingData = allBids?.filter( data => data?._id !== id);
         const updated = allBids?.find( data => data?._id === id )
         const updatedBids =[updated , ...remainingData]
@@ -77,8 +122,8 @@ console.log(status)
       <th>
      {
       bid?.status === "Pending..." ?  <div className="flex flex-col gap-2">
-      <button className="btn btn-primary" onClick={() => handleBid(bid?._id, acceptStatus)}>Accept</button>
-      <button className="btn btn-primary" onClick={() => handleBid(bid?._id, cancelStatus)} >Cancel</button>
+      <button className="btn btn-primary" onClick={() => handleAcceptBid(bid?._id)}>Accept</button>
+      <button className="btn btn-primary" onClick={() => handleCancelBid(bid?._id)} >Cancel</button>
   </div> : <></>
      }
       </th>
@@ -91,6 +136,7 @@ console.log(status)
     
   </table>
 </div>
+<ToastContainer />
         </div>
     );
 };

@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer ,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const AddJob = () => {
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
@@ -32,6 +33,16 @@ const AddJob = () => {
      .then(data => {
         console.log(data)
         if(data?.insertedId){
+            toast.success("Job Posted Successfully", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate('/mypostedjobs')
         }
      })
@@ -70,7 +81,7 @@ const AddJob = () => {
             </div>
             <button type="submit" className="btn btn-primary w-full mt-3">Add Job</button>
             </form>
-
+        <ToastContainer />
         </div>
     );
 };

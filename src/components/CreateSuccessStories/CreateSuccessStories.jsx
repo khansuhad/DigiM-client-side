@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer ,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 const CreateSuccessStories = () => {
+    const navigate = useNavigate();
     const {user } = useContext(AuthContext)
     const email = user?.email;
     const photo = user?.photoURL ;
@@ -22,7 +26,19 @@ const CreateSuccessStories = () => {
      })
      .then(res => res.json())
      .then(data => {
-        console.log(data)
+        if(data?.insertedId){
+            toast.success("Story created Successfully...", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+                navigate(-1)
+        }
      })
     
     }
@@ -33,6 +49,7 @@ const CreateSuccessStories = () => {
             <textarea  name="description" className="textarea textarea-error w-full col-span-10 h-40" placeholder="Description"></textarea>
             <button  className="btn btn-primary w-full">Submit</button>
             </form>
+            <ToastContainer />
         </div>
     );
 };

@@ -45,7 +45,7 @@ const UpdateMyPostedJobs = () => {
                 progress: undefined,
                 theme: "colored",
                 });
-                navigate('/')
+                navigate(-1)
         }
     })
 }

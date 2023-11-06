@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
+import { ToastContainer ,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const MyBids = () => {
   const {user} = useContext(AuthContext)
   const bids = useLoaderData();
@@ -26,6 +29,16 @@ useEffect(() => {
       .then(res => res.json())
           .then(data => {
            if(data?.modifiedCount > 0){
+            toast.success("Confirmation Successful...", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              });
             const remainingData = allBids?.filter( data => data?._id !== id);
             const updated = allBids?.find( data => data?._id === id )
             const updatedBids =[updated , ...remainingData]
@@ -89,6 +102,7 @@ useEffect(() => {
     
   </table>
 </div>
+<ToastContainer/>
         </div>
     );
 };
