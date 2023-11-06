@@ -1,3 +1,4 @@
+import Community from "./Community";
 import HomeBanner from "./HomeBanner";
 import SuccessStories from "./SuccessStories";
 import TabBrowser from "./TabBrowser";
@@ -14,6 +15,7 @@ const Home = () => {
             <HomeBanner></HomeBanner>
             <TabBrowser></TabBrowser>
             <SuccessStories></SuccessStories>
+            <Community></Community>
         </div>
     );
 };

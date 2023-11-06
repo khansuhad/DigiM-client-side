@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomeBanner = () => {
     return (
-    <div className='w-[90%] mx-auto rounded h-screen '>
+    <div className='w-[90%] mx-auto rounded lg:h-screen '>
         <div className="carousel w-full h-5/6">
       <div id="slide1" className="carousel-item relative w-full">
         <img src="https://i.ibb.co/d0kK4WT/Ubersuggest-April-Headers-Image-11.jpg" className="w-full rounded" />

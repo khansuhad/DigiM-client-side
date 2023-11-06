@@ -12,7 +12,7 @@ const SuccessStory = ({storie}) => {
         <div>
             <h1 className="text-left mt-5 text-base ">{story}</h1>
         </div>
-        <hr className="w-full my-5 border-2" />
+        <hr className="w-full my-5 border-2 border-sky-200" />
         </div>
     );
 };
