@@ -24,7 +24,7 @@ useEffect(() => {
           headers:{
               'content-type' : 'application/json',
           },
-          body : JSON.stringify({status : "Completed..."})
+          body : JSON.stringify({status : "Completed"})
       })
       .then(res => res.json())
           .then(data => {
@@ -39,10 +39,13 @@ useEffect(() => {
               progress: undefined,
               theme: "colored",
               });
-            const remainingData = allBids?.filter( data => data?._id !== id);
-            const updated = allBids?.find( data => data?._id === id )
-            const updatedBids =[updated , ...remainingData]
-            setAllBids(updatedBids)
+              const updatedBids = allBids.map((bid) => {
+                if (bid._id === id) {
+                  return { ...bid, status: "Completed" };
+                }
+                return bid;
+              });
+              setAllBids(updatedBids)
             
             
            }
@@ -89,7 +92,7 @@ useEffect(() => {
           <h1>{bid?.status}</h1>
         </th>
         {
-          bid?.status === "In progress..." && <th>
+          bid?.status === "In progress" && <th>
             <button onClick={() => handleCompleted(bid?._id)} className="btn btn-primary">Completed</button>
           </th>
          }

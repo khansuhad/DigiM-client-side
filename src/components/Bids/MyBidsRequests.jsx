@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const MyBidsRequests = () => {
   const {user} = useContext(AuthContext)
   const bids = useLoaderData();
-  const [allBids , setAllBids] = useState([]);
+  const [allBids , setAllBids] = useState();
   
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const MyBidsRequests = () => {
  
  
  console.log(allBids)
-   const acceptStatus = "In progress...";
-   const cancelStatus = "Cancelled..."
+   const acceptStatus = "In progress";
+   const cancelStatus = "Cancelled"
   const handleAcceptBid = ( id  ) => {
 
     fetch(`http://localhost:5000/bids/${id}`, {
@@ -42,12 +42,13 @@ const MyBidsRequests = () => {
           progress: undefined,
           theme: "colored",
           });
-        const remainingData = allBids?.filter( data => data?._id !== id);
-        const updated = allBids?.find( data => data?._id === id )
-        const updatedBids =[updated , ...remainingData]
+        const updatedBids = allBids.map((bid) => {
+          if (bid._id === id) {
+            return { ...bid, status: acceptStatus };
+          }
+          return bid;
+        });
         setAllBids(updatedBids)
-        
-        
        }
       })
 
@@ -74,10 +75,13 @@ const MyBidsRequests = () => {
           progress: undefined,
           theme: "colored",
           });
-        const remainingData = allBids?.filter( data => data?._id !== id);
-        const updated = allBids?.find( data => data?._id === id )
-        const updatedBids =[updated , ...remainingData]
-        setAllBids(updatedBids)
+          const updatedBids = allBids.map((bid) => {
+            if (bid._id === id) {
+              return { ...bid, status: cancelStatus };
+            }
+            return bid;
+          });
+          setAllBids(updatedBids)
         
         
        }
@@ -121,7 +125,7 @@ const MyBidsRequests = () => {
       </th>
       <th>
      {
-      bid?.status === "Pending..." ?  <div className="flex flex-col gap-2">
+      bid?.status === "Pending" ?  <div className="flex flex-col gap-2">
       <button className="btn btn-primary" onClick={() => handleAcceptBid(bid?._id)}>Accept</button>
       <button className="btn btn-primary" onClick={() => handleCancelBid(bid?._id)} >Cancel</button>
   </div> : <></>

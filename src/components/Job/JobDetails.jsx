@@ -16,7 +16,7 @@ const handleBidForm = (e) => {
     const form = e.target ;
     const bidPrice = form.bidPrice.value ;
     const bidDeadLine = form.bidDeadLine.value ;
-    const status = "Pending..."
+    const status = "Pending"
     const bidForm = {bidPrice , bidDeadLine , myEmail , email , jobTitle , deadLine , status };
 console.log(bidForm)
     fetch('http://localhost:5000/bids' ,{
