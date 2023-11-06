@@ -15,7 +15,7 @@ const MyBidsRequests = () => {
  
  
  console.log(allBids)
-   const acceptStatus = "Confirmed...";
+   const acceptStatus = "In progress...";
    const cancelStatus = "Cancelled..."
   const handleBid = ( id , status ) => {
 console.log(status)
@@ -67,7 +67,7 @@ console.log(status)
        <h1>{bid?.email}</h1>
       </td>
       <td>{bid?.bidDeadLine}</td>
-      <th >
+      <th >  
         <h1>{bid?.status}</h1>
        
       </th>

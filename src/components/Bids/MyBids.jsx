@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
@@ -6,9 +6,36 @@ const MyBids = () => {
   const {user} = useContext(AuthContext)
   const bids = useLoaderData();
   console.log(bids)
+
+  const [allBids , setAllBids] = useState([]);
+useEffect(() => {
   const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
   console.log(mybids)
-  const [allBids , setAllBids] = useState(mybids);
+  setAllBids(mybids);
+},[bids,user?.email])
+
+  const handleCompleted = ( id  ) => {
+
+        fetch(`http://localhost:5000/bids/${id}`, {
+          method:'PATCH',
+          headers:{
+              'content-type' : 'application/json',
+          },
+          body : JSON.stringify({status : "Completed..."})
+      })
+      .then(res => res.json())
+          .then(data => {
+           if(data?.modifiedCount > 0){
+            const remainingData = allBids?.filter( data => data?._id !== id);
+            const updated = allBids?.find( data => data?._id === id )
+            const updatedBids =[updated , ...remainingData]
+            setAllBids(updatedBids)
+            
+            
+           }
+          })
+    
+      }
     return (
         <div className="w-[90%] mx-auto">
             <div className="overflow-x-auto">
@@ -43,6 +70,11 @@ const MyBids = () => {
         <th>
           <h1>{bid?.status}</h1>
         </th>
+        {
+          bid?.status === "In progress..." && <th>
+            <button onClick={() => handleCompleted(bid?._id)} className="btn btn-primary">Completed</button>
+          </th>
+         }
       </tr>) 
     }
    
