@@ -43,20 +43,20 @@ const AddJob = () => {
             
 
             <form onSubmit={handleAddForm} className="w-[60%] mx-auto">
-                <div className="grid grid-cols-2 items-center gap-5 mt-10 ">
+                <div className="grid lg:grid-cols-2 items-center gap-5 mt-10 ">
                 <h2 className="text-xl  font-medium ">Your email : {user?.email}</h2>
-                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded ">
+                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded  ">
                     
                      <option value="digitalmarketing">Digital Marketing</option>
                      <option value="grapicsdesign">Grapics Design</option>
                      <option value="webdevolopment">Web Devolopment</option>
     </select>
                 </div>
-            <div className="flex gap-5  mt-5">
+            <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input type="text" name="jobTitle" placeholder="Job title" className="input input-bordered input-error w-full " />
                     <input type="text" name="deadLine" placeholder="Deadline" className="input input-bordered input-error w-full " />
             </div>
-            <div className="flex gap-5  mt-5">
+            <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input type="text" name="minimumPrice" placeholder="Minimum price" className="input input-bordered input-error w-full " />
                     <input type="text" name="maximumPrice" placeholder="Maximum price" className="input input-bordered input-error w-full " />
             </div>
