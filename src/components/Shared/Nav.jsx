@@ -37,7 +37,7 @@ const Nav = () => {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/addjob'>Add job</Link></li>
               <li><Link to='/mypostedjobs'>My posted Jobs</Link></li>
-              <li><Link to='/mybid'>My Bids</Link></li>
+              <li><Link to='/mybids'>My Bids</Link></li>
               <li><Link to='/bidrequests'>Bid Requests</Link></li>
             </ul>
           </div>

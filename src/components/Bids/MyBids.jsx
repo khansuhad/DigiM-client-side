@@ -40,11 +40,11 @@ useEffect(() => {
         <div className="w-[90%] mx-auto">
           <Helmet>
             <title>DigiM | MyBids
-              
+
             </title>
           </Helmet>
             <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table text-2xl">
     {/* head */}
     <thead>
       <tr>
@@ -57,7 +57,7 @@ useEffect(() => {
     <tbody>
       {/* row 1 */}
     {
-      allBids?.map( bid =>   <tr key={bid?._id}>
+      allBids?.map( bid =>   <tr className="text-xl" key={bid?._id}>
         <td>
           <div className="flex items-center space-x-3">
           
