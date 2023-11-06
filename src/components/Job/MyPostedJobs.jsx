@@ -46,8 +46,8 @@ const handleDeleteJob = (id) => {
           <div className="card-body">
             <h2 className="card-title">{job?.jobTitle}</h2>
             <h3>Price : ${job?.minimumPrice} - ${job?.maximumPrice}</h3>
-            <h3> DeadLine : {job?.deadLine}</h3>
-            <p>{job?.description}</p>
+            <h3 > DeadLine : {job?.deadLine}</h3>
+            <p className="px-2 overflow-hidden">{job?.description}</p>
             <div className="  flex gap-5 justify-center items-center">
               <Link to={`/updatepostedjobs/${job?._id}`} className="btn btn-primary">Update</Link>
               <button className="btn btn-primary" onClick={() => handleDeleteJob(job?._id)}>Delete</button>

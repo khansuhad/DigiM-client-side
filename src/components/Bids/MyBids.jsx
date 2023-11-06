@@ -12,10 +12,23 @@ const MyBids = () => {
 
   const [allBids , setAllBids] = useState([]);
 useEffect(() => {
-  const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
-  console.log(mybids)
-  setAllBids(mybids);
-},[bids,user?.email])
+    const URL = `http://localhost:5000/bids?myEmail=${user?.email}`
+    fetch(URL ,{credentials:'include'})
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setAllBids(data)
+    })
+
+
+  // const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
+  // console.log(mybids)
+  // setAllBids(mybids);
+},[user?.email])
+
+
+
+
 
   const handleCompleted = ( id  ) => {
 

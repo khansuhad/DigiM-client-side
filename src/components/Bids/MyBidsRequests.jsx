@@ -17,7 +17,7 @@ const MyBidsRequests = () => {
   },[bids, user?.email])
  
  
- console.log(allBids)
+ console.log(bids)
    const acceptStatus = "In progress";
    const cancelStatus = "Cancelled"
   const handleAcceptBid = ( id  ) => {
