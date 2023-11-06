@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ToastContainer ,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../AuthProvider/AuthProvider";
@@ -33,13 +33,13 @@ const Nav = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/addjob'>Add job</Link></li>
-              <li><Link to='/mypostedjobs'>My posted Jobs</Link></li>
-              <li><Link to='/mybids'>My Bids</Link></li>
-              <li><Link to='/bidrequests'>Bid Requests</Link></li>
-              <li><Link to='/successstory'>Success Stories</Link></li>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow border-black bg-gray-100 rounded-box w-52">
+              <li><NavLink to='/'>Home</NavLink></li>
+              <li><NavLink to='/addjob'>Add job</NavLink></li>
+              <li><NavLink to='/mypostedjobs'>My posted Jobs</NavLink></li>
+              <li><NavLink to='/mybids'>My Bids</NavLink></li>
+              <li><NavLink to='/bidrequests'>Bid Requests</NavLink></li>
+              <li><NavLink to='/successstory'>Success Stories</NavLink></li>
             </ul>
           </div>
 
@@ -50,12 +50,12 @@ const Nav = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-2xl">
-              <li><Link to='/' >Home</Link></li>
-              <li><Link to='/addjob'>Add job</Link></li>
-              <li><Link to='/mypostedjobs'>My posted Jobs</Link></li>
-              <li><Link to='/mybids'>My Bids</Link></li>
-              <li><Link to='/bidrequests'>Bid Requests</Link></li>
-              <li><Link to='/successstory'>Success Stories</Link></li>
+              <li><NavLink to='/' >Home</NavLink></li>
+              <li><NavLink to='/addjob'>Add job</NavLink></li>
+              <li><NavLink to='/mypostedjobs'>My posted Jobs</NavLink></li>
+              <li><NavLink to='/mybids'>My Bids</NavLink></li>
+              <li><NavLink to='/bidrequests'>Bid Requests</NavLink></li>
+              <li><NavLink to='/successstory'>Success Stories</NavLink></li>
           </ul>
         </div>
         <div className="navbar-end">
