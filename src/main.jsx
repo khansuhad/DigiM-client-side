@@ -21,6 +21,9 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import AuthProvider from './components/AuthProvider/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
+import CreateSuccessStories from './components/CreateSuccessStories/CreateSuccessStories';
+import SuccessStory from './components/CreateSuccessStories/SuccessStory';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,6 +63,14 @@ const router = createBrowserRouter([
             path:'/bidrequests',
             element:<PrivateRoute><MyBidsRequests></MyBidsRequests></PrivateRoute>,
             loader:() => fetch('http://localhost:5000/bids')
+        },
+        {
+            path:'/createsuccessstory',
+            element:<PrivateRoute><CreateSuccessStories></CreateSuccessStories></PrivateRoute>
+        },
+        {
+            path:"/successstory",
+            element:<SuccessStory></SuccessStory>,
         },
         {
           path:'login',

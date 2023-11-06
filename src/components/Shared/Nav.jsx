@@ -39,6 +39,7 @@ const Nav = () => {
               <li><Link to='/mypostedjobs'>My posted Jobs</Link></li>
               <li><Link to='/mybids'>My Bids</Link></li>
               <li><Link to='/bidrequests'>Bid Requests</Link></li>
+              <li><Link to='/successstory'>Success Stories</Link></li>
             </ul>
           </div>
 
@@ -54,6 +55,7 @@ const Nav = () => {
               <li><Link to='/mypostedjobs'>My posted Jobs</Link></li>
               <li><Link to='/mybids'>My Bids</Link></li>
               <li><Link to='/bidrequests'>Bid Requests</Link></li>
+              <li><Link to='/successstory'>Success Stories</Link></li>
           </ul>
         </div>
         <div className="navbar-end">

@@ -1,4 +1,5 @@
 import HomeBanner from "./HomeBanner";
+import SuccessStories from "./SuccessStories";
 import TabBrowser from "./TabBrowser";
 import { Helmet } from 'react-helmet';
 
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>
             <HomeBanner></HomeBanner>
             <TabBrowser></TabBrowser>
+            <SuccessStories></SuccessStories>
         </div>
     );
 };
