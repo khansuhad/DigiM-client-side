@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import { Helmet } from 'react-helmet';
 
 const JobDetails = () => {
 const {user} = useContext(AuthContext)
@@ -33,6 +33,7 @@ console.log(bidForm)
 
     return (
         <div className="lg:w-[40%] mx-auto mt-20  ">
+            <Helmet><title>DigiM | Job Details</title></Helmet>
             <div className="  ">
             <h1 className="text-4xl font-semibold">{jobTitle}</h1>
             <h2 className="text-2xl font-normal mt-3">Price : ${minimumPrice} - ${maximumPrice}</h2>

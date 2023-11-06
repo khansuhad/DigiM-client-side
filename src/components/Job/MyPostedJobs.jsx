@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-
+  import { Helmet } from 'react-helmet';
 const MyPostedJobs = () => {
   const {user} = useContext(AuthContext);
   const myEmail = user?.email ;
@@ -38,6 +38,9 @@ const handleDeleteJob = (id) => {
 }
     return (
         <div className="w-[90%] mx-auto grid grid-cols-4  gap-5">
+          <Helmet>
+            <title>DigiM | My Posted Jobs</title>
+          </Helmet>
          {
           myJobs?.map(  job =>    <div key={job?._id} className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">

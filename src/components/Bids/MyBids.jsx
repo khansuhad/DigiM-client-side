@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import { Helmet } from 'react-helmet';
 const MyBids = () => {
   const {user} = useContext(AuthContext)
   const bids = useLoaderData();
@@ -38,6 +38,11 @@ useEffect(() => {
       }
     return (
         <div className="w-[90%] mx-auto">
+          <Helmet>
+            <title>DigiM | MyBids
+              
+            </title>
+          </Helmet>
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}

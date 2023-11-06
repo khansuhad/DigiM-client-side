@@ -3,7 +3,7 @@ import {  useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import { Helmet } from 'react-helmet';
 
 const UpdateMyPostedJobs = () => {
     const {user} = useContext(AuthContext);
@@ -51,6 +51,7 @@ const UpdateMyPostedJobs = () => {
 }
     return (
         <div>
+            <Helmet><title>DigiM | Update Jobs</title></Helmet>
             <h1 className="text-5xl text-center">Update Job Form</h1>
             
 

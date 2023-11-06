@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import { Helmet } from 'react-helmet';
 
 const AddJob = () => {
     const {user} = useContext(AuthContext);
@@ -36,6 +36,9 @@ const AddJob = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>DigiM | Add Job</title>
+            </Helmet>
             <h1 className="text-5xl text-center">Add Job Form</h1>
             
 
