@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <div className="w-[90%] mx-auto mt-0">
       <div className=" ">
-        <ul className='flex  gap-5 text-3xl font-semibold p-10 justify-center '>
+        <ul className='flex  gap-5 lg:text-3xl font-semibold p-10 justify-center '>
           {tabs.map((tab) => <li
               key={tab.id}
               className={`cursor-pointer p-4 ${tab === activeTab ? 'bg-gray-500  text-white rounded' : ''}`}
@@ -46,15 +46,14 @@ useEffect(() => {
         </ul>
       </div>
       <div className=" p-4">
-        <div className="bg-gray-100 p-4 grid grid-cols-4">
+        <div className="bg-gray-100 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {
-            content?.map( data => <div key={data?._id} className="card w-96 bg-base-100 shadow-xl">
+            content?.map( data => <div key={data?._id} className="card  bg-base-100 shadow-xl overflow-hidden">
             <div className="card-body">
               <h2 className="card-title">{data?.jobTitle}</h2>
-              <p>{data?.description}</p>
               <p>Price : ${data?.minimumPrice} - ${data?.maximumPrice}</p>
               <p>{data?.deadLine}</p>
-              <p>{data?.catagory}</p>
+              <p className='px-2 h-10'>{data?.description}</p>
               <div className="card-actions justify-end">
               <Link to={`/job/${data?._id}`} className='btn btn-primary ml-5'>Bid now</Link>
               </div>
