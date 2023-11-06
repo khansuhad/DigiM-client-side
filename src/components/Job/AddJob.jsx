@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
+    const navigate = useNavigate();
     const {user} = useContext(AuthContext);
     console.log(user?.email)
     const handleAddForm = (e) => {
@@ -29,6 +31,9 @@ const AddJob = () => {
      .then(res => res.json())
      .then(data => {
         console.log(data)
+        if(data?.insertedId){
+            navigate('/mypostedjobs')
+        }
      })
     
 

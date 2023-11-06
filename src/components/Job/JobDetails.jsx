@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
 
 const JobDetails = () => {
+    const navigate = useNavigate();
 const {user} = useContext(AuthContext)
 const myEmail = user?.email ;
 const suhad = useLoaderData();
@@ -27,6 +28,9 @@ console.log(bidForm)
      .then(res => res.json())
      .then(data => {
         console.log(data)
+        if(data?.insertedId){
+            navigate('/mybids')
+        }
      })
     
 }
