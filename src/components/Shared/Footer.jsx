@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='mt-20'>
-   <footer className="footer footer-center p-10 bg-base-200 ">
+        <div className='bg-gradient-to-r from-purple-500 to-pink-500 text-white'>
+   <footer className="footer footer-center p-10 text-xl ">
   <aside>
-<img src="https://i.ibb.co/Y7sygTM/Whats-App-Image-2023-11-04-at-8-05-03-PM.jpg" alt="" className='h-20 w-28 rounded' />
+<img src="https://i.ibb.co/Y7sygTM/Whats-App-Image-2023-11-04-at-8-05-03-PM.jpg" alt="" className='h-20 w-56 rounded' />
     <p className="font-normal">
-      Digim <br/> Mobile : +8801777777777 <br /> Address : Dorgah mohollah , Moulvibazar 
+     <span className='font-bold text-2xl'> Digim</span> <br/> Mobile : +8801777777777 <br /> Address : Dorgah mohollah , Moulvibazar 
     </p> 
     <p>Copyright © 2023 - All right reserved</p>
   </aside> 

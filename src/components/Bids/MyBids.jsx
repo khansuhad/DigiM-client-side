@@ -66,7 +66,8 @@ useEffect(() => {
     
       }
     return (
-        <div className="w-[90%] mx-auto">
+        <div className="bg-gradient-to-r from-violet-300 to-red-300 rounded min-h-screen">
+          <div className="w-[90%] mx-auto">
           <Helmet>
             <title>DigiM | MyBids
 
@@ -76,7 +77,7 @@ useEffect(() => {
   <table className="table text-2xl">
     {/* head */}
     <thead>
-      <tr>
+      <tr className="text-2xl text-black">
         <th>Job Title</th>
         <th>Email</th>
         <th>Deadline</th>
@@ -86,7 +87,7 @@ useEffect(() => {
     <tbody>
       {/* row 1 */}
     {
-      allBids?.map( bid =>   <tr className="text-xl" key={bid?._id}>
+      allBids?.map( bid =>   <tr className="text-xl font-semibold" key={bid?._id}>
         <td>
           <div className="flex items-center space-x-3">
           
@@ -106,7 +107,7 @@ useEffect(() => {
         </th>
         {
           bid?.status === "In progress" && <th>
-            <button onClick={() => handleCompleted(bid?._id)} className="btn btn-primary">Completed</button>
+            <button onClick={() => handleCompleted(bid?._id)} className="btn bg-gradient-to-r from-red-800 to-pink-700 border-none text-white">Completed</button>
           </th>
          }
       </tr>) 
@@ -119,6 +120,7 @@ useEffect(() => {
   </table>
 </div>
 <ToastContainer/>
+        </div>
         </div>
     );
 };

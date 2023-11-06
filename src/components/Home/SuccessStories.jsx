@@ -14,8 +14,8 @@ const SuccessStories = () => {
 
     },[])
     return (
-        <div className="text-center">
-            <h1 className="font-bold text-center text-5xl my-20">Success Stories...</h1>
+        <div className="text-center bg-white py-10">
+            <h1 className="font-bold text-center text-5xl py-5">Success Stories...</h1>
             <div className="w-[80%] mx-auto">
           {
             stories?.map( story => <SuccessStory key={story?._id} storie={story}></SuccessStory>   )

@@ -5,7 +5,7 @@ import Nav from "../Shared/Nav";
 
 const Root = () => {
     return (
-        <div>
+        <div className="min-h-screen bg-gray-100">
             <Nav></Nav>
             <Outlet></Outlet>
             <Footer></Footer>

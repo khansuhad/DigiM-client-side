@@ -47,10 +47,11 @@ console.log(bidForm)
 }
 
     return (
-        <div className="md:w-[80%] lg:w-[40%] mx-auto mt-20  ">
+        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20">
+            <div className="w-[95%] md:w-[80%] lg:w-[40%] mx-auto border-2 p-4 rounded  ">
             <Helmet><title>DigiM | Job Details</title></Helmet>
-            <div className=" text-center md:text-left   ">
-            <h1 className=" text-2xl lg:text-4xl font-semibold">{jobTitle}</h1>
+            <div className=" text-center md:text-left  ">
+            <h1 className=" text-2xl lg:text-4xl font-semibold">Job Title : {jobTitle}</h1>
             <h2 className="text-xl lg:text-2xl font-normal mt-3">Price : ${minimumPrice} - ${maximumPrice}</h2>
             </div>
             <div className="text-center md:text-left">
@@ -59,15 +60,15 @@ console.log(bidForm)
             </div>
 
             <div>
-                <h1 className="text-center text-4xl mt-20">Place your Bid</h1>
+                <h1 className="text-center text-4xl mt-20 font-bold">Place your Bid</h1>
                 <div className="px-10  mt-10 text-xl md:text-2xl">
                         <h1 className="font-extralight"><span className="font-semibold">Your email :</span> {myEmail}</h1>
-                        <h1 className="font-extralight"><span className="font-semibold">job owner email :</span> {email}</h1>
+                        <h1 className="font-extralight"><span className="font-semibold">owner email :</span> {email}</h1>
                     </div>
                 <form action="" onSubmit={handleBidForm}>
                     <div className="flex flex-col gap-5 lg:flex-row mt-10 w-[90%] mx-auto">
-                    <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full " required />
-                    <input type="text" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full " required />
+                    <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
+                    <input type="text" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
                     </div>
                    {
                     myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button> :
@@ -76,6 +77,7 @@ console.log(bidForm)
                 </form>
             </div>
             <ToastContainer></ToastContainer>
+        </div>
         </div>
     );
 };

@@ -91,7 +91,8 @@ const MyBidsRequests = () => {
  
  
     return (
-        <div className="w-[90%] mx-auto text-center">
+       <div className="bg-gradient-to-r from-violet-300 to-red-300 rounded min-h-screen">
+         <div className="w-[90%] mx-auto text-center">
           <Helmet>
             <title>DigiM | My Bid Requests</title>
           </Helmet>
@@ -99,7 +100,7 @@ const MyBidsRequests = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr className="text-2xl">
+      <tr className="text-2xl font-bold text-black">
         <th>Job Title</th>
         <th>Email</th>
         <th>Deadline</th>
@@ -109,7 +110,7 @@ const MyBidsRequests = () => {
     <tbody>
       {/* row 1 */}
      {
-      allBids?.map( bid =>  <tr className="text-xl" key={bid?._id}>
+      allBids?.map( bid =>  <tr className="text-xl font-semibold" key={bid?._id}>
       <td>
         <div className="flex items-center space-x-3">
          <div className="font-bold">{bid?.jobTitle}</div>
@@ -126,8 +127,8 @@ const MyBidsRequests = () => {
       <th>
      {
       bid?.status === "Pending" ?  <div className="flex flex-col gap-2">
-      <button className="btn btn-primary" onClick={() => handleAcceptBid(bid?._id)}>Accept</button>
-      <button className="btn btn-primary" onClick={() => handleCancelBid(bid?._id)} >Cancel</button>
+      <button className="btn bg-gradient-to-r from-red-800 to-pink-700 border-none text-white" onClick={() => handleAcceptBid(bid?._id)}>Accept</button>
+      <button className="btn bg-gradient-to-r from-red-800 to-pink-700 border-none text-white" onClick={() => handleCancelBid(bid?._id)} >Cancel</button>
   </div> : <></>
      }
       </th>
@@ -142,6 +143,7 @@ const MyBidsRequests = () => {
 </div>
 <ToastContainer />
         </div>
+       </div>
     );
 };
 

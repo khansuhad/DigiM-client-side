@@ -51,17 +51,17 @@ const AddJob = () => {
     }
 
     return (
-        <div>
+        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
             <Helmet>
                 <title>DigiM | Add Job</title>
             </Helmet>
-            <h1 className="text-5xl text-center">Add Job Form</h1>
+            <h1 className="text-5xl text-center font-bold">Add Job Form</h1>
             
 
-            <form onSubmit={handleAddForm} className="w-[60%] mx-auto">
+            <form onSubmit={handleAddForm} className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto">
                 <div className="grid lg:grid-cols-2 items-center gap-5 mt-10 ">
                 <h2 className="text-xl  font-medium ">Your email : {user?.email}</h2>
-                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded  ">
+                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded font-medium outline-none px-3 ">
                     
                      <option value="digitalmarketing">Digital Marketing</option>
                      <option value="grapicsdesign">Grapics Design</option>
@@ -69,15 +69,15 @@ const AddJob = () => {
     </select>
                 </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
-                    <input type="text" name="jobTitle" placeholder="Job title" className="input input-bordered input-error w-full " />
-                    <input type="text" name="deadLine" placeholder="Deadline" className="input input-bordered input-error w-full " />
+                    <input type="text" name="jobTitle" placeholder="Job title" className="text-xs md:text-xl border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
+                    <input type="text" name="deadLine" placeholder="Deadline" className="text-xs md:text-xl  border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
             </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
-                    <input type="text" name="minimumPrice" placeholder="Minimum price" className="input input-bordered input-error w-full " />
-                    <input type="text" name="maximumPrice" placeholder="Maximum price" className="input input-bordered input-error w-full " />
+                    <input type="text" name="minimumPrice" placeholder="Minimum price" className="text-xs md:text-xl border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
+                    <input type="text" name="maximumPrice" placeholder="Maximum price" className="text-xs md:text-xl border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
             </div>
             <div className="w-full mt-5">
-            <textarea  name="description" className="textarea textarea-error w-full col-span-10" placeholder="Description"></textarea>
+            <textarea  name="description" className="textarea textarea-error w-full col-span-10 text-xs md:text-xl border-orange-600 border-2 outline-none" placeholder="Description"></textarea>
             </div>
             <button type="submit" className="btn btn-primary w-full mt-3">Add Job</button>
             </form>

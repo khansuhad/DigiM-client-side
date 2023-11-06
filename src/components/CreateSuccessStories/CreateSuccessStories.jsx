@@ -40,17 +40,19 @@ const CreateSuccessStories = () => {
                 navigate(-1)
         }
      })
-    
+     
     }
     return (
-        <div className="w-[80%] mx-auto">
+       <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
+         <div className="w-[80%] mx-auto">
             <h1 className="text-center font-bold text-3xl">Send your Success Story....</h1>
             <form className="w-full mt-5" onSubmit={handleCreateStory}>
-            <textarea  name="description" className="textarea textarea-error w-full col-span-10 h-40" placeholder="Description"></textarea>
+            <textarea  name="description" className="textarea textarea-error w-full col-span-10 h-40 text-xs md:text-xl border-orange-600 border-2 outline-none" placeholder="Description"></textarea>
             <button  className="btn btn-primary w-full">Submit</button>
             </form>
             <ToastContainer />
         </div>
+       </div>
     );
 };
 

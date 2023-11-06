@@ -37,26 +37,30 @@ const handleDeleteJob = (id) => {
   })
 }
     return (
-        <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
+       <div className=" bg-slate-200 py-20">
+            <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-5xl pb-4 lg:pb-10">My Posted Jobs</h1>
+         <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 bg-slate-200">
           <Helmet>
             <title>DigiM | My Posted Jobs</title>
           </Helmet>
+      
          {
-          myJobs?.map(  job =>    <div key={job?._id} className="card  bg-base-100 shadow-xl overflow-hidden">
+          myJobs?.map(  job =>    <div key={job?._id} className="card  text-white bg-gradient-to-r from-sky-500 to-indigo-500 shadow-xl overflow-hidden">
           <div className="card-body">
             <h2 className="card-title">{job?.jobTitle}</h2>
             <h3>Price : ${job?.minimumPrice} - ${job?.maximumPrice}</h3>
             <h3 > DeadLine : {job?.deadLine}</h3>
             <p className="px-2 overflow-hidden">{job?.description}</p>
-            <div className="  flex gap-5 justify-center items-center">
-              <Link to={`/updatepostedjobs/${job?._id}`} className="btn btn-primary">Update</Link>
-              <button className="btn btn-primary" onClick={() => handleDeleteJob(job?._id)}>Delete</button>
+            <div className="  flex gap-5 justify-center items-center py-5">
+              <Link to={`/updatepostedjobs/${job?._id}`} className="btn text-white border-none bg-gradient-to-r from-violet-500 to-fuchsia-500">Update</Link>
+              <button className="btn bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none " onClick={() => handleDeleteJob(job?._id)}>Delete</button>
             </div>
           </div>
         </div>)
          }
 <ToastContainer />
         </div>
+       </div>
     );
 };
 

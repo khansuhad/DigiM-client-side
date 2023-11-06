@@ -3,7 +3,7 @@
 const Community = () => {
     return (
         <div className="">
-            <h1 className="text-center text-5xl font-bold ">Community and Forums</h1>
+            <h1 className="text-center text-5xl font-bold py-10">Community and Forums</h1>
             <div className="grid grid-cols-3 gap-5 lg:gap-10 w-[95%] md:w-[80%] lg:w-[60%] mx-auto py-10">
                 <div className="flex flex-col justify-center items-center text-center">
                     <img src="https://i.ibb.co/5FRNHT7/avatar.jpg" alt="" className="h-24 w-24 rounded-full" />

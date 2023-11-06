@@ -50,25 +50,25 @@ const UpdateMyPostedJobs = () => {
     })
 }
     return (
-        <div>
+        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
             <Helmet><title>DigiM | Update Jobs</title></Helmet>
-            <h1 className="text-2xl lg:text-5xl font-semibold text-center">Update Job Form</h1>
+            <h1 className="text-2xl lg:text-5xl font-bold text-center ">Update Job Form</h1>
             
 
-            <form action="" className="w-[60%] mx-auto" onSubmit={handleUpdateForm}>
+            <form action="" className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto" onSubmit={handleUpdateForm}>
                 <div>
                 <h2 className="text-xl lg:text-3xl  font-normal mt-10"><span className="font-semibold">Your email :</span> {myEmail}</h2>
                 </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
-                    <input name="jobTitle" defaultValue={jobTitle} type="text" placeholder="Job title" className="input input-bordered input-error w-full " />
-                    <input name="deadLine" defaultValue={deadLine} type="text" placeholder="Deadline" className="input input-bordered input-error w-full " />
+                    <input name="jobTitle" defaultValue={jobTitle} type="text" placeholder="Job title" className="text-xs md:text-xl  input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
+                    <input name="deadLine" defaultValue={deadLine} type="text" placeholder="Deadline" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
             </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
-                    <input name="minimumPrice" defaultValue={minimumPrice} type="text" placeholder="Minimum price" className="input input-bordered input-error w-full " />
-                    <input name="maximumPrice" defaultValue={maximumPrice} type="text" placeholder="Maximum price" className="input input-bordered input-error w-full " />
+                    <input name="minimumPrice" defaultValue={minimumPrice} type="text" placeholder="Minimum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
+                    <input name="maximumPrice" defaultValue={maximumPrice} type="text" placeholder="Maximum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
             </div>
             <div className="w-full mt-5">
-            <textarea className="textarea textarea-error w-full col-span-10" name="description" defaultValue={description} placeholder="Bio"></textarea>
+            <textarea className="textarea textarea-error w-full col-span-10 border-orange-600 border-2 outline-none text-xs md:text-xl" name="description" defaultValue={description} placeholder="Bio"></textarea>
             </div>
             <button  className="btn btn-primary w-full mt-3">Update Job</button>
             </form>

@@ -59,14 +59,14 @@ useEffect(() => {
     <TabPanel >
    <div className="bg-gray-100 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
    {
-        webDevolopment?.map( data =>  <div key={data?._id} className="card  bg-base-100 shadow-xl ">
+        webDevolopment?.map( data =>  <div key={data?._id} className="card text-white  bg-gradient-to-r from-sky-500 to-indigo-500 shadow-xl ">
         <div className="card-body">
           <h2 className="card-title">{data?.jobTitle}</h2>
           <p>Price : ${data?.minimumPrice} - ${data?.maximumPrice}</p>
           <p>{data?.deadLine}</p>
           <p className='px-2 h-10 overflow-hidden'>{data?.description}</p>
           <div className="card-actions justify-end">
-          <Link to={`/job/${data?._id}`} className='btn btn-primary ml-5'>Bid now</Link>
+          <Link to={`/job/${data?._id}`} className='btn bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ml-5'>Bid now</Link>
           </div>
         </div>
       </div> )
@@ -76,14 +76,14 @@ useEffect(() => {
     <TabPanel >
  <div className="bg-gray-100 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
  {
-        digitalMarketing?.map( data =>  <div key={data?._id} className="card  bg-base-100 shadow-xl ">
+        digitalMarketing?.map( data =>  <div key={data?._id} className="card text-white bg-gradient-to-r from-sky-500 to-indigo-500 shadow-xl ">
         <div className="card-body">
           <h2 className="card-title">{data?.jobTitle}</h2>
           <p>Price : ${data?.minimumPrice} - ${data?.maximumPrice}</p>
           <p>{data?.deadLine}</p>
           <p className='px-2 h-10 overflow-hidden'>{data?.description}</p>
           <div className="card-actions justify-end">
-          <Link to={`/job/${data?._id}`} className='btn btn-primary ml-5'>Bid now</Link>
+          <Link to={`/job/${data?._id}`} className='btn bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ml-5'>Bid now</Link>
           </div>
         </div>
       </div> )
@@ -93,14 +93,14 @@ useEffect(() => {
     <TabPanel >
 <div className="bg-gray-100 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 {
-        grapicsDesign?.map( data =>  <div key={data?._id} className="card  bg-base-100 shadow-xl ">
+        grapicsDesign?.map( data =>  <div key={data?._id} className="card text-white bg-gradient-to-r from-sky-500 to-indigo-500 shadow-xl ">
         <div className="card-body">
           <h2 className="card-title">{data?.jobTitle}</h2>
           <p>Price : ${data?.minimumPrice} - ${data?.maximumPrice}</p>
           <p>{data?.deadLine}</p>
           <p className='px-2 h-10 overflow-hidden'>{data?.description}</p>
           <div className="card-actions justify-end">
-          <Link to={`/job/${data?._id}`} className='btn btn-primary ml-5'>Bid now</Link>
+          <Link to={`/job/${data?._id}`} className='btn bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ml-5'>Bid now</Link>
           </div>
         </div>
       </div> )
