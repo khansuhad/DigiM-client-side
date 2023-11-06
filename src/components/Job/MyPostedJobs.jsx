@@ -42,7 +42,7 @@ const handleDeleteJob = (id) => {
             <title>DigiM | My Posted Jobs</title>
           </Helmet>
          {
-          myJobs?.map(  job =>    <div key={job?._id} className="card w-96 bg-base-100 shadow-xl overflow-hidden">
+          myJobs?.map(  job =>    <div key={job?._id} className="card  bg-base-100 shadow-xl overflow-hidden">
           <div className="card-body">
             <h2 className="card-title">{job?.jobTitle}</h2>
             <h3>Price : ${job?.minimumPrice} - ${job?.maximumPrice}</h3>

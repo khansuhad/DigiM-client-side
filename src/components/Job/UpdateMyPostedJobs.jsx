@@ -52,18 +52,18 @@ const UpdateMyPostedJobs = () => {
     return (
         <div>
             <Helmet><title>DigiM | Update Jobs</title></Helmet>
-            <h1 className="text-5xl text-center">Update Job Form</h1>
+            <h1 className="text-2xl lg:text-5xl font-semibold text-center">Update Job Form</h1>
             
 
             <form action="" className="w-[60%] mx-auto" onSubmit={handleUpdateForm}>
                 <div>
-                <h2 className="text-3xl  font-light mt-10">Your email : {myEmail}</h2>
+                <h2 className="text-xl lg:text-3xl  font-normal mt-10"><span className="font-semibold">Your email :</span> {myEmail}</h2>
                 </div>
-            <div className="flex gap-5  mt-5">
+            <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input name="jobTitle" defaultValue={jobTitle} type="text" placeholder="Job title" className="input input-bordered input-error w-full " />
                     <input name="deadLine" defaultValue={deadLine} type="text" placeholder="Deadline" className="input input-bordered input-error w-full " />
             </div>
-            <div className="flex gap-5  mt-5">
+            <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input name="minimumPrice" defaultValue={minimumPrice} type="text" placeholder="Minimum price" className="input input-bordered input-error w-full " />
                     <input name="maximumPrice" defaultValue={maximumPrice} type="text" placeholder="Maximum price" className="input input-bordered input-error w-full " />
             </div>
