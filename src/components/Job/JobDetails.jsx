@@ -32,31 +32,31 @@ console.log(bidForm)
 }
 
     return (
-        <div className="lg:w-[40%] mx-auto mt-20  ">
+        <div className="md:w-[80%] lg:w-[40%] mx-auto mt-20  ">
             <Helmet><title>DigiM | Job Details</title></Helmet>
-            <div className="  ">
-            <h1 className="text-4xl font-semibold">{jobTitle}</h1>
-            <h2 className="text-2xl font-normal mt-3">Price : ${minimumPrice} - ${maximumPrice}</h2>
+            <div className=" text-center md:text-left   ">
+            <h1 className=" text-2xl lg:text-4xl font-semibold">{jobTitle}</h1>
+            <h2 className="text-xl lg:text-2xl font-normal mt-3">Price : ${minimumPrice} - ${maximumPrice}</h2>
             </div>
-            <div>
-                <h1 className="text-2xl font-normal my-3">{deadLine}</h1>
-                <p className="text-xl font-light">{description}</p>
+            <div className="text-center md:text-left">
+                <h1 className=" text-xl lg:text-2xl font-normal my-3">DeadLine : {deadLine}</h1>
+                <p className="text-lg lg:text-xl font-light">{description}</p>
             </div>
 
             <div>
-                <h1 className="text-center text-4xl">Place your Bid</h1>
+                <h1 className="text-center text-4xl mt-20">Place your Bid</h1>
+                <div className="px-10  mt-10 text-xl md:text-2xl">
+                        <h1 className="font-extralight"><span className="font-semibold">Your email :</span> {myEmail}</h1>
+                        <h1 className="font-extralight"><span className="font-semibold">job owner email :</span> {email}</h1>
+                    </div>
                 <form action="" onSubmit={handleBidForm}>
-                    <div className="flex gap-5  mt-10">
+                    <div className="flex flex-col gap-5 lg:flex-row mt-10 w-[90%] mx-auto">
                     <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full " required />
                     <input type="text" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full " required />
                     </div>
-                    <div className="  mt-10 text-2xl">
-                        <h1>Your email : {myEmail}</h1>
-                        <h1>job owner email : {email}</h1>
-                    </div>
                    {
                     myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button> :
-                    <h1 className="mt-10 text-2xl text-center">You can not bid your own posted job</h1>
+                    <h1 className="mt-10 text-2xl font-bold  text-center">You can not bid your own posted job</h1>
                    }
                 </form>
             </div>
