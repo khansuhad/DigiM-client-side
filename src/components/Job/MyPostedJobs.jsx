@@ -37,16 +37,16 @@ const handleDeleteJob = (id) => {
   })
 }
     return (
-        <div className="w-[90%] mx-auto grid grid-cols-4  gap-5">
+        <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
           <Helmet>
             <title>DigiM | My Posted Jobs</title>
           </Helmet>
          {
-          myJobs?.map(  job =>    <div key={job?._id} className="card w-96 bg-base-100 shadow-xl">
+          myJobs?.map(  job =>    <div key={job?._id} className="card w-96 bg-base-100 shadow-xl overflow-hidden">
           <div className="card-body">
             <h2 className="card-title">{job?.jobTitle}</h2>
             <h3>Price : ${job?.minimumPrice} - ${job?.maximumPrice}</h3>
-            <h3>{job?.deadLine}</h3>
+            <h3> DeadLine : {job?.deadLine}</h3>
             <p>{job?.description}</p>
             <div className="  flex gap-5 justify-center items-center">
               <Link to={`/updatepostedjobs/${job?._id}`} className="btn btn-primary">Update</Link>
