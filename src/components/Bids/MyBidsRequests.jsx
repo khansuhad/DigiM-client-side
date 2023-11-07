@@ -24,7 +24,7 @@ const MyBidsRequests = () => {
 },[user?.email])
  
  
-  let progressValue = 75 ;  
+ 
    const acceptStatus = "In progress";
    const cancelStatus = "Cancelled"
   const handleAcceptBid = ( id  ) => {
@@ -56,7 +56,7 @@ console.log('hit accept')
           return bid;
         });
         setAllBids(updatedBids)
-        progressValue = 100
+    
        }
       })
 
@@ -125,7 +125,7 @@ console.log('hit cancel');
            </div>
       </td>
       <td>
-       <h1>{bid?.email}</h1>
+       <h1>{bid?.myEmail}</h1>
       </td>
       <td>{bid?.bidDeadLine}</td>
       <th >  
