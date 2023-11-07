@@ -1,9 +1,10 @@
 import { useContext,  useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import { Helmet } from 'react-helmet';
+  import Swal from 'sweetalert2';
 const MyPostedJobs = () => {
   const {user} = useContext(AuthContext);
   const myEmail = user?.email ;
@@ -12,29 +13,62 @@ const MyPostedJobs = () => {
   const [myJobs , setMyJobs] = useState(jobs);
 
 const handleDeleteJob = (id) => {
-  fetch(`http://localhost:5000/jobs/catagory/${id}`,{
-      method:"DELETE"
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+        fetch(`http://localhost:5000/jobs/catagory/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res=> res.json())
+        .then(data =>{
+            if(data?.deletedCount > 0){
+                Swal.fire(
+                  'Deleted!',
+                  'The contact has been deleted.',
+                  'success'
+                )
+                const remainingData = myJobs?.filter(item => item._id !== id)
+                setMyJobs(remainingData);
+            }
+        })
+    }
   })
-  .then(res => res.json())
-  .then(data => {
-      console.log(data)
-      if(data?.deletedCount > 0) {
-        const remainingData = myJobs?.filter(item => item._id !== id)
-        console.log(remainingData)
-        toast.success("Deleted successfully", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
-            setMyJobs(remainingData);
+
+
+
+
+
+
+  // fetch(`http://localhost:5000/jobs/catagory/${id}`,{
+  //     method:"DELETE"
+  // })
+  // .then(res => res.json())
+  // .then(data => {
+  //     console.log(data)
+  //     if(data?.deletedCount > 0) {
+        
+  //       // console.log(remainingData)
+  //       toast.success("Deleted successfully", {
+  //           position: "top-right",
+  //           autoClose: 2000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: "colored",
+  //           });
+           
           
-       }
-  })
+  //      }
+  // })
 }
     return (
        <div className=" bg-slate-200 py-20">
