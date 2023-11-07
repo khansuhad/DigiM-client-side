@@ -70,7 +70,7 @@ const AddJob = () => {
                 </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input type="text" name="jobTitle" placeholder="Job title" className="text-xs md:text-xl border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
-                    <input type="text" name="deadLine" placeholder="Deadline" className="text-xs md:text-xl  border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
+                    <input type="date" name="deadLine" placeholder="Deadline" className="text-xs md:text-xl  border-orange-600 border-2 outline-none input input-bordered input-error w-full " />
             </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input type="text" name="minimumPrice" placeholder="Minimum price" className="text-xs md:text-xl border-orange-600 border-2 outline-none input input-bordered input-error w-full " />

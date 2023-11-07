@@ -68,7 +68,7 @@ console.log(bidForm)
                 <form action="" onSubmit={handleBidForm}>
                     <div className="flex flex-col gap-5 lg:flex-row mt-10 w-[90%] mx-auto">
                     <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
-                    <input type="text" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
+                    <input type="date" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
                     </div>
                    {
                     myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button> :
