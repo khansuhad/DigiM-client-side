@@ -19,7 +19,7 @@ const handleBidForm = (e) => {
     const status = "Pending"
     const bidForm = {bidPrice , bidDeadLine , myEmail , email , jobTitle , deadLine , status };
 console.log(bidForm)
-    fetch('http://localhost:5000/bids' ,{
+    fetch('https://assignment-11-server-side-rust.vercel.app/bids' ,{
         method:"POST",
         headers:{
             "content-type": "application/json"

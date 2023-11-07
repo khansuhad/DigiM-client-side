@@ -23,7 +23,7 @@ const TabBrowser = () => {
     setActiveTab(tab);
 }
   useEffect(() => {
-    fetch(`http://localhost:5000/jobs`)
+    fetch(`https://assignment-11-server-side-rust.vercel.app/jobs`)
     .then(res => res.json())
     .then(data => {
       console.log(data);

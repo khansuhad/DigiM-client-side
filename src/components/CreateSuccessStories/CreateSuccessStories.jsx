@@ -17,7 +17,7 @@ const CreateSuccessStories = () => {
         const story = form.description.value ;
         const createStory = {story , email , photo , name};
         
-     fetch('http://localhost:5000/stories' ,{
+     fetch('https://assignment-11-server-side-rust.vercel.app/stories' ,{
         method:"POST",
         headers:{
             "content-type": "application/json"

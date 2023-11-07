@@ -22,7 +22,7 @@ const AddJob = () => {
         const addForm = {jobTitle, deadLine, minimumPrice , maximumPrice , description , catagory, email};
         console.log(addForm);
 
-     fetch('http://localhost:5000/jobs' ,{
+     fetch('https://assignment-11-server-side-rust.vercel.app/jobs' ,{
         method:"POST",
         headers:{
             "content-type": "application/json"

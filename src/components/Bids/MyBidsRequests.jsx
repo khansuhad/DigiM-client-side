@@ -12,7 +12,7 @@ const MyBidsRequests = () => {
   
 
   useEffect(() => {
-    const URL = `http://localhost:5000/bids?email=${user?.email}`
+    const URL = `https://assignment-11-server-side-rust.vercel.app/bids?email=${user?.email}`
     fetch(URL , {credentials:'include'})
     .then(res => res.json())
     .then(data => {

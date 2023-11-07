@@ -12,7 +12,7 @@ const MyBids = () => {
 
   const [allBids , setAllBids] = useState([]);
 useEffect(() => {
-    const URL = `http://localhost:5000/bids?myEmail=${user?.email}`
+    const URL = `https://assignment-11-server-side-rust.vercel.app/bids?myEmail=${user?.email}`
     fetch(URL , {credentials:'include'})
     .then(res => res.json())
     .then(data => {
@@ -32,7 +32,7 @@ useEffect(() => {
 
   const handleCompleted = ( id  ) => {
 
-        fetch(`http://localhost:5000/bids/${id}`, {
+        fetch(`https://assignment-11-server-side-rust.vercel.app/bids/${id}`, {
           method:'PATCH',
           headers:{
               'content-type' : 'application/json',

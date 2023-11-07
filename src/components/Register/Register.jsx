@@ -109,12 +109,12 @@ const Register = () => {
     <div className="my-10">
       <img
         src="https://i.ibb.co/4Vy3BMn/wave-1.png"
-        className="fixed hidden lg:block inset-0 h-full -z-10"
+        className="fixed hidden lg:block inset-0 h-full z-10"
       />
       <div className="w-screen h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
         <img
           src="https://i.ibb.co/JcGpQ3W/unlock.jpg"
-          className="hidden lg:block w-1/2 hover:scale-150 transition-all duration-500 transform mx-auto"
+          className="hidden lg:block w-1/2 hover:scale-150 transition-all duration-500 transform mx-auto z-20"
         />
         <div className=" ">
           <form

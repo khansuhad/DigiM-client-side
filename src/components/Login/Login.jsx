@@ -83,7 +83,7 @@ console.log(loginForm)
         <div className='my-10'>
                <img
       src="https://i.ibb.co/4Vy3BMn/wave-1.png"
-      className="fixed hidden lg:block inset-0 h-full -z-10"
+      className="fixed hidden lg:block inset-0 h-full z-10"
   
     />
     <div
@@ -91,7 +91,7 @@ console.log(loginForm)
     >
       <img
         src="https://i.ibb.co/JcGpQ3W/unlock.jpg"
-        className="hidden lg:block w-1/2 hover:scale-150 transition-all duration-500 transform mx-auto"
+        className="hidden lg:block w-1/2 hover:scale-150 transition-all duration-500 transform mx-auto z-20"
       />
    <div className='flex flex-col justify-center items-center lg:w-1/2 mb-6 '>
    <img src="https://i.ibb.co/5FRNHT7/avatar.jpg" className="w-32" />

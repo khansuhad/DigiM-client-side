@@ -24,7 +24,7 @@ const UpdateMyPostedJobs = () => {
     const updateForm = { jobTitle , deadLine , minimumPrice , maximumPrice , description }
     console.log(updateForm);
 
-    fetch(`http://localhost:5000/jobs/catagory/${_id}` , {
+    fetch(`https://assignment-11-server-side-rust.vercel.app/jobs/catagory/${_id}` , {
         method:'PUT',
         headers:{
             'content-type' : 'application/json',

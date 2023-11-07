@@ -23,7 +23,7 @@ const handleDeleteJob = (id) => {
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-        fetch(`http://localhost:5000/jobs/catagory/${id}`, {
+        fetch(`https://assignment-11-server-side-rust.vercel.app/jobs/catagory/${id}`, {
             method: 'DELETE',
         })
         .then(res=> res.json())
@@ -41,35 +41,7 @@ const handleDeleteJob = (id) => {
     }
   })
 
-
-
-
-
-
-  // fetch(`http://localhost:5000/jobs/catagory/${id}`,{
-  //     method:"DELETE"
-  // })
-  // .then(res => res.json())
-  // .then(data => {
-  //     console.log(data)
-  //     if(data?.deletedCount > 0) {
-        
-  //       // console.log(remainingData)
-  //       toast.success("Deleted successfully", {
-  //           position: "top-right",
-  //           autoClose: 2000,
-  //           hideProgressBar: false,
-  //           closeOnClick: true,
-  //           pauseOnHover: true,
-  //           draggable: true,
-  //           progress: undefined,
-  //           theme: "colored",
-  //           });
-           
-          
-  //      }
-  // })
-}
+};
     return (
        <div className=" bg-slate-200 py-20">
             <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-5xl pb-4 lg:pb-10">My Posted Jobs</h1>

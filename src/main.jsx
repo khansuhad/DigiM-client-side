@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         {
           path:`/job/:_id`,
           element:<PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/catagory/${params._id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-side-rust.vercel.app/jobs/catagory/${params._id}`)
         },
         {
           path:'/addjob',
@@ -46,23 +46,23 @@ const router = createBrowserRouter([
         {
           path:'/mypostedjobs',
           element:<PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/jobs')
+          loader: () => fetch('https://assignment-11-server-side-rust.vercel.app/jobs')
 
         },
         {
           path:`/updatepostedjobs/:_id`,
           element:<PrivateRoute><UpdateMyPostedJobs></UpdateMyPostedJobs></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/catagory/${params._id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-side-rust.vercel.app/jobs/catagory/${params._id}`)
         },
         {
           path:'/mybids',
           element:<PrivateRoute><MyBids></MyBids></PrivateRoute>,
-          loader:() => fetch('http://localhost:5000/bids')
+          loader:() => fetch('https://assignment-11-server-side-rust.vercel.app/bids')
         },
         {
             path:'/bidrequests',
             element:<PrivateRoute><MyBidsRequests></MyBidsRequests></PrivateRoute>,
-            loader:() => fetch('http://localhost:5000/bids')
+            loader:() => fetch('https://assignment-11-server-side-rust.vercel.app/bids')
         },
         {
             path:'/createsuccessstory',
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
             element:<SuccessStory></SuccessStory>,
         },
         {
-          path:'login',
+          path:'/login',
           element:<Login></Login>
         },
         {
