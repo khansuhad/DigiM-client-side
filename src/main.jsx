@@ -57,12 +57,10 @@ const router = createBrowserRouter([
         {
           path:'/mybids',
           element:<PrivateRoute><MyBids></MyBids></PrivateRoute>,
-          loader:() => fetch('https://assignment-11-server-side-rust.vercel.app/bids')
         },
         {
             path:'/bidrequests',
             element:<PrivateRoute><MyBidsRequests></MyBidsRequests></PrivateRoute>,
-            loader:() => fetch('https://assignment-11-server-side-rust.vercel.app/bids')
         },
         {
             path:'/createsuccessstory',

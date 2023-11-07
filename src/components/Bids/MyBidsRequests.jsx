@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MyBidsRequests = () => {
   const {user} = useContext(AuthContext)
-  const bids = useLoaderData();
   const [allBids , setAllBids] = useState();
   
 
@@ -20,19 +19,15 @@ const MyBidsRequests = () => {
       setAllBids(data)
     })
 
-
-  // const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
-  // console.log(mybids)
-  // setAllBids(mybids);
 },[user?.email])
  
  
- console.log(bids)
+
    const acceptStatus = "In progress";
    const cancelStatus = "Cancelled"
   const handleAcceptBid = ( id  ) => {
-
-    fetch(`http://localhost:5000/bids/${id}`, {
+console.log('hit accept')
+    fetch(`https://assignment-11-server-side-rust.vercel.app/bids/${id}`, {
       method:'PATCH',
       headers:{
           'content-type' : 'application/json',
@@ -64,8 +59,8 @@ const MyBidsRequests = () => {
 
   }
   const handleCancelBid = ( id  ) => {
-
-    fetch(`http://localhost:5000/bids/${id}`, {
+console.log('hit cancel');
+    fetch(`https://assignment-11-server-side-rust.vercel.app/bids/${id}`, {
       method:'PATCH',
       headers:{
           'content-type' : 'application/json',
