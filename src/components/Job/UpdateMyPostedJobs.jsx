@@ -10,7 +10,7 @@ const UpdateMyPostedJobs = () => {
     const myEmail = user?.email ;
     const job = useLoaderData();
     const navigate = useNavigate();
-    const {jobTitle, deadLine, minimumPrice , maximumPrice , description , _id } = job 
+    const {jobTitle, deadLine, minimumPrice , maximumPrice , description , _id , catagory } = job 
 
   const handleUpdateForm = (event) => {
     event.preventDefault();
@@ -20,12 +20,14 @@ const UpdateMyPostedJobs = () => {
     const minimumPrice = form.minimumPrice.value;
     const maximumPrice = form.maximumPrice.value;
     const description = form.description.value;
+    const catagory = form.catagory.value;
+    
    
-    const updateForm = { jobTitle , deadLine , minimumPrice , maximumPrice , description }
+    const updateForm = { jobTitle , deadLine , minimumPrice , maximumPrice , description , catagory }
     console.log(updateForm);
 
     fetch(`https://assignment-11-server-side-rust.vercel.app/jobs/catagory/${_id}` , {
-        method:'PUT',
+        method:'PATCH',
         headers:{
             'content-type' : 'application/json',
         },
@@ -34,7 +36,7 @@ const UpdateMyPostedJobs = () => {
     .then(res => res.json())
     .then(data => {
         console.log(data)
-        if(data?.modifiedCount > 0){
+        if(data?.modifiedCount > 0 || data?.matchedCount > 0){
             toast.success("Updated successfully", {
                 position: "top-right",
                 autoClose: 2000,
@@ -58,7 +60,7 @@ const UpdateMyPostedJobs = () => {
             <form action="" className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto" onSubmit={handleUpdateForm}>
                 <div className="grid lg:grid-cols-2 items-center gap-5 mt-10 ">
                 <h2 className="text-xl lg:text-2xl  font-normal "><span className="font-semibold">Your email :</span> {myEmail}</h2>
-                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded font-medium outline-none px-3 " required>
+                <select id="dropdown" name="catagory" defaultValue={catagory} className=" w-full py-2 border rounded font-medium outline-none px-3 " required>
                     
                     <option value="digitalmarketing">Digital Marketing</option>
                     <option value="grapicsdesign">Grapics Design</option>

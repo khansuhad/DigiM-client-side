@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
 import { ToastContainer ,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 const JobDetails = () => {
     const navigate = useNavigate();
 const {user} = useContext(AuthContext)
@@ -13,12 +14,32 @@ const {jobTitle, deadLine, minimumPrice , maximumPrice , description , email} = 
 
 const handleBidForm = (e) => {
     e.preventDefault();
+    
     const form = e.target ;
     const bidPrice = form.bidPrice.value ;
     const bidDeadLine = form.bidDeadLine.value ;
     const status = "Pending"
     const bidForm = {bidPrice , bidDeadLine , myEmail , email , jobTitle , deadLine , status };
-console.log(bidForm)
+console.log(bidForm);
+
+    if(bidPrice <= minimumPrice || bidPrice >= maximumPrice){
+        Swal.fire({
+            title: 'Error!',
+            text: 'Your bid price is out of price range',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+          return
+    }
+    if(deadLine < bidDeadLine){
+        Swal.fire({
+            title: 'Error!',
+            text: 'Your bid deadline is not accepted , Please follow the deadline ',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+          return
+    }
     fetch('https://assignment-11-server-side-rust.vercel.app/bids' ,{
         method:"POST",
         headers:{
