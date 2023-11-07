@@ -50,22 +50,28 @@ const UpdateMyPostedJobs = () => {
     })
 }
     return (
-        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
+        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 pb-20 pt-10 rounded">
             <Helmet><title>DigiM | Update Jobs</title></Helmet>
-            <h1 className="text-2xl lg:text-5xl font-bold text-center w-fit mx-auto px-4 py-2 rounded my-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ">Update Job Form</h1>
+            <h1 className="text-2xl lg:text-5xl font-bold text-center w-fit mx-auto px-4 py-2 rounded mb-20 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ">Update Job Form</h1>
             
 
             <form action="" className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto" onSubmit={handleUpdateForm}>
-                <div>
-                <h2 className="text-xl lg:text-3xl  font-normal mt-10"><span className="font-semibold">Your email :</span> {myEmail}</h2>
+                <div className="grid lg:grid-cols-2 items-center gap-5 mt-10 ">
+                <h2 className="text-xl lg:text-2xl  font-normal "><span className="font-semibold">Your email :</span> {myEmail}</h2>
+                <select id="dropdown" name="dropdown" className=" w-full py-2 border rounded font-medium outline-none px-3 " required>
+                    
+                    <option value="digitalmarketing">Digital Marketing</option>
+                    <option value="grapicsdesign">Grapics Design</option>
+                    <option value="webdevolopment">Web Devolopment</option>
+   </select>
                 </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
                     <input name="jobTitle" defaultValue={jobTitle} type="text" placeholder="Job title" className="text-xs md:text-xl  input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
-                    <input name="deadLine" defaultValue={deadLine} type="text" placeholder="Deadline" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
+                    <input name="deadLine" defaultValue={deadLine} type="date" placeholder="Deadline" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
             </div>
             <div className="flex flex-col lg:flex-row gap-5  mt-5">
-                    <input name="minimumPrice" defaultValue={minimumPrice} type="text" placeholder="Minimum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
-                    <input name="maximumPrice" defaultValue={maximumPrice} type="text" placeholder="Maximum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
+                    <input name="minimumPrice" defaultValue={minimumPrice} type="number" placeholder="Minimum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
+                    <input name="maximumPrice" defaultValue={maximumPrice} type="number" placeholder="Maximum price" className="text-xs md:text-xl input input-bordered border-orange-600 border-2 outline-none input-error w-full " />
             </div>
             <div className="w-full mt-5">
             <textarea className="textarea textarea-error w-full col-span-10 border-orange-600 border-2 outline-none text-xs md:text-xl" name="description" defaultValue={description} placeholder="Bio"></textarea>

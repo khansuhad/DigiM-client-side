@@ -60,7 +60,6 @@ console.log(loginForm)
             progress: undefined,
             theme: "colored",
             });
-        console.log(res.user)
         navigate('/');
     })
     .catch(error => {

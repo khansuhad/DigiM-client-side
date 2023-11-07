@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer ,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import moment from "moment/moment";
 const AddJob = () => {
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
@@ -51,11 +52,11 @@ const AddJob = () => {
     }
 
     return (
-        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
+        <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 pb-20 pt-10 rounded">
             <Helmet>
                 <title>DigiM | Add Job</title>
             </Helmet>
-            <h1 className="text-5xl text-center font-bold bg-gradient-to-r w-fit mx-auto px-4 py-2 rounded from-purple-500 to-pink-500 text-white border-none">Add Job Form</h1>
+            <h1 className="text-5xl text-center font-bold w-fit mx-auto px-4 py-2 rounded mb-20 bg-gradient-to-r  from-purple-500 to-pink-500 text-white border-none">Add Job Form</h1>
             
 
             <form onSubmit={handleAddForm} className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto text-black">

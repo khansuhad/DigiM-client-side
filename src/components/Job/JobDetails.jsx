@@ -71,7 +71,7 @@ console.log(bidForm)
                     <input type="date" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
                     </div>
                    {
-                    myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid</button> :
+                    myEmail !== email ?  <button  className="btn btn-primary w-full mt-10 text-2xl ">Bid on the Project</button> :
                     <h1 className="mt-10 text-2xl font-bold  text-center">You can not bid your own posted job</h1>
                    }
                 </form>
