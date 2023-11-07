@@ -1,4 +1,4 @@
-import { useContext,  useState } from "react";
+import { useContext,  useEffect,  useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer } from 'react-toastify';
@@ -7,10 +7,19 @@ import { ToastContainer } from 'react-toastify';
   import Swal from 'sweetalert2';
 const MyPostedJobs = () => {
   const {user} = useContext(AuthContext);
-  const myEmail = user?.email ;
-  const allJobs = useLoaderData();
-  const jobs = allJobs?.filter( job => job?.email === myEmail);
-  const [myJobs , setMyJobs] = useState(jobs);
+  const [myJobs , setMyJobs] = useState([]);
+
+  useEffect(() => {
+    const URL = `https://assignment-11-server-side-rust.vercel.app/jobs/${user?.email}`
+    fetch(URL , {credentials:'include'})
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setMyJobs(data)
+    })
+},[user?.email])
+
+
 
 const handleDeleteJob = (id) => {
   Swal.fire({

@@ -7,8 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MyBids = () => {
   const {user} = useContext(AuthContext)
-  const bids = useLoaderData();
-  console.log(bids)
 
   const [allBids , setAllBids] = useState([]);
 useEffect(() => {
@@ -21,9 +19,7 @@ useEffect(() => {
     })
 
 
-  // const mybids = bids?.filter( bids => bids?.myEmail === user?.email )
-  // console.log(mybids)
-  // setAllBids(mybids);
+
 },[user?.email])
 
 
