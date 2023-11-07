@@ -60,14 +60,14 @@ console.log(bidForm)
             </div>
 
             <div>
-                <h1 className="text-center text-4xl mt-20 font-bold">Place your Bid</h1>
+                <h1 className="text-center text-4xl mt-20 font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none">Place your Bid</h1>
                 <div className="px-10  mt-10 text-xl md:text-2xl">
                         <h1 className="font-extralight"><span className="font-semibold">Your email :</span> {myEmail}</h1>
                         <h1 className="font-extralight"><span className="font-semibold">owner email :</span> {email}</h1>
                     </div>
                 <form action="" onSubmit={handleBidForm}>
                     <div className="flex flex-col gap-5 lg:flex-row mt-10 w-[90%] mx-auto">
-                    <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
+                    <input type="number" name="bidPrice" placeholder="Price" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
                     <input type="date" name="bidDeadLine" placeholder="DeadLine" className="input input-bordered input-error w-full text-xs md:text-xl  border-orange-600 border-2 outline-none " required />
                     </div>
                    {

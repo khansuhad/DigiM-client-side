@@ -44,7 +44,7 @@ const handleDeleteJob = (id) => {
 };
     return (
        <div className=" bg-slate-200 py-20">
-            <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-5xl pb-4 lg:pb-10">My Posted Jobs</h1>
+            <h1 className="text-center w-fit mx-auto px-4 py-2 rounded my-4 font-bold text-2xl md:text-3xl lg:text-5xl   bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none">My Posted Jobs</h1>
          <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 bg-slate-200">
           <Helmet>
             <title>DigiM | My Posted Jobs</title>

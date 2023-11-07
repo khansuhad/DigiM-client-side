@@ -52,7 +52,7 @@ const UpdateMyPostedJobs = () => {
     return (
         <div className="bg-gradient-to-r from-purple-300 to-blue-300 bg-opacity-90 py-20 rounded">
             <Helmet><title>DigiM | Update Jobs</title></Helmet>
-            <h1 className="text-2xl lg:text-5xl font-bold text-center ">Update Job Form</h1>
+            <h1 className="text-2xl lg:text-5xl font-bold text-center w-fit mx-auto px-4 py-2 rounded my-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none ">Update Job Form</h1>
             
 
             <form action="" className="w-[90%] md:w-[80%] lg:w-[60%] mx-auto" onSubmit={handleUpdateForm}>
