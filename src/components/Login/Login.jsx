@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer ,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -80,6 +81,9 @@ console.log(loginForm)
 
     return (
         <div className='my-10'>
+            <Helmet>
+            <title>DigiM | Login</title>
+          </Helmet>
                <img
       src="https://i.ibb.co/4Vy3BMn/wave-1.png"
       className="fixed hidden lg:block inset-0 h-full z-10"

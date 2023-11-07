@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from 'react-helmet';
 import { ToastContainer ,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import "react-step-progress-bar/styles.css";
+import { ProgressBar } from "react-step-progress-bar";
 
 const MyBidsRequests = () => {
   const {user} = useContext(AuthContext)
@@ -22,7 +24,7 @@ const MyBidsRequests = () => {
 },[user?.email])
  
  
-
+  let progressValue = 75 ;  
    const acceptStatus = "In progress";
    const cancelStatus = "Cancelled"
   const handleAcceptBid = ( id  ) => {
@@ -54,6 +56,7 @@ console.log('hit accept')
           return bid;
         });
         setAllBids(updatedBids)
+        progressValue = 100
        }
       })
 
@@ -82,12 +85,12 @@ console.log('hit cancel');
           });
           const updatedBids = allBids.map((bid) => {
             if (bid._id === id) {
-              return { ...bid, status: cancelStatus };
+              return { ...bid, status: cancelStatus  };
             }
-            return bid;
+            return bid  ;
           });
           setAllBids(updatedBids)
-        
+          
         
        }
       })
@@ -135,6 +138,32 @@ console.log('hit cancel');
       <button className="btn bg-gradient-to-r from-red-800 to-pink-700 border-none text-white" onClick={() => handleAcceptBid(bid?._id)}>Accept</button>
       <button className="btn bg-gradient-to-r from-red-800 to-pink-700 border-none text-white" onClick={() => handleCancelBid(bid?._id)} >Cancel</button>
   </div> : <></>
+     }
+     {
+      bid?.status ==="In progress" && <div>
+       <div className="flex justify-between mb-1">
+        <h1 className="text-center font-medium text-xs lg:text-base">Progress</h1>
+        <h1 className="text-center font-medium text-xs lg:text-base">75%</h1>
+        </div>
+  <ProgressBar
+
+        percent={75}
+        filledBackground="linear-gradient(to right, #940B92, #610C9F)"
+      />
+    
+      </div>
+     }
+     {
+      bid?.status ==="Completed" && <div>
+        <div className="flex justify-between gap-2 mb-1">
+        <h1 className="text-center font-medium text-xs lg:text-base">Progress</h1>
+        <h1 className="text-center font-medium text-xs lg:text-base">100%</h1>
+        </div>
+  <ProgressBar
+        percent={100}
+        filledBackground="linear-gradient(to right, #940B92, #610C9F)"
+      />
+      </div>
      }
       </th>
     </tr>)

@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, setUser } = useContext(AuthContext);
@@ -107,6 +108,9 @@ const Register = () => {
   };
   return (
     <div className="my-10">
+        <Helmet>
+            <title>DigiM | Register</title>
+          </Helmet>
       <img
         src="https://i.ibb.co/4Vy3BMn/wave-1.png"
         className="fixed hidden lg:block inset-0 h-full z-10"
