@@ -22,7 +22,7 @@ const handleBidForm = (e) => {
     const bidForm = {bidPrice , bidDeadLine , myEmail , email , jobTitle , deadLine , status };
 console.log(bidForm);
 
-    if(bidPrice <= minimumPrice || bidPrice >= maximumPrice){
+    if(bidPrice < minimumPrice || bidPrice > maximumPrice){
         Swal.fire({
             title: 'Error!',
             text: 'Your bid price is out of price range',
