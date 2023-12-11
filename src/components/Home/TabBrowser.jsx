@@ -6,9 +6,13 @@ import 'react-tabs/style/react-tabs.css';
 
 const TabBrowser = () => {
   const [allTabContent , setAllTabContent ] = useState([])
+  
   const [digitalMarketing , setDigitalMarketing ] = useState([])
+  console.log(digitalMarketing);
   const [webDevolopment , setWebdevolopment ] = useState([])
+  console.log(webDevolopment);
   const [grapicsDesign , setGrapicsDesign ] = useState([])
+  console.log(grapicsDesign);
   const [content , setContent ] = useState([])
  console.log(allTabContent);
   const [tabs, setTabs] = useState([

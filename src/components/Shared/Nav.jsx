@@ -44,7 +44,7 @@ const Nav = () => {
           </div>
 
           <a className="btn btn-ghost normal-case text-xl">
-            <img src="https://i.ibb.co/Y7sygTM/Whats-App-Image-2023-11-04-at-8-05-03-PM.jpg" alt="" className="h-12 " />
+            <img src="https://i.postimg.cc/hPKCkHgZ/Whats-App-Image-2023-12-12-at-1-10-52-AM.jpg" alt="" className="h-12 " />
          
             </a>
         </div>

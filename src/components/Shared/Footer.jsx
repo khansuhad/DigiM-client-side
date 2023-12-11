@@ -5,7 +5,7 @@ const Footer = () => {
         <div className='bg-gradient-to-r from-purple-500 to-pink-500 text-white z-30'>
    <footer className="footer footer-center p-10 text-xl ">
   <aside>
-<img src="https://i.ibb.co/Y7sygTM/Whats-App-Image-2023-11-04-at-8-05-03-PM.jpg" alt="" className='h-20 w-56 rounded' />
+<img src="https://i.postimg.cc/hPKCkHgZ/Whats-App-Image-2023-12-12-at-1-10-52-AM.jpg" alt="" className='h-20 w-56 rounded' />
     <p className="font-normal">
      <span className='font-bold text-2xl'> Digim</span> <br/> Mobile : +8801777777777 <br /> Address : Dorgah mohollah , Moulvibazar 
     </p> 
